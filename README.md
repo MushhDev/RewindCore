@@ -2,7 +2,7 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg" alt="Version">
-  <img src="https://img.shields.io/badge/Minecraft-1.20.4 1.21.11-green.svg" alt="Minecraft">
+  <img src="https://img.shields.io/badge/Minecraft-1.20.4 a 1.21.11-green.svg" alt="Minecraft">
   <img src="https://img.shields.io/badge/Java-17+-orange.svg" alt="Java">
   <img src="https://img.shields.io/badge/Author-MushHX-purple.svg" alt="Author">
 </p>
