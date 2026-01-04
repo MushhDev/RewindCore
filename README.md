@@ -1,8 +1,8 @@
-# RewindCore
+# RewindCore v1.0.1
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg" alt="Version">
-  <img src="https://img.shields.io/badge/Minecraft-1.20.4 a 1.21.11-green.svg" alt="Minecraft">
+  <img src="https://img.shields.io/badge/Version-1.0.1-blue.svg" alt="Version">
+  <img src="https://img.shields.io/badge/Minecraft-1.20.4-green.svg" alt="Minecraft">
   <img src="https://img.shields.io/badge/Java-17+-orange.svg" alt="Java">
   <img src="https://img.shields.io/badge/Author-MushHX-purple.svg" alt="Author">
 </p>
@@ -109,6 +109,16 @@ RewindCore utiliza múltiples archivos de configuración para mayor organizació
 | `messages.yml` | Mensajes personalizables |
 | `gui.yml` | Configuración de interfaces gráficas |
 | `security.yml` | Seguridad y anti-exploit |
+| `lang/<idioma>.yml` | Idioma base (ej: `lang/es_ES.yml`, `lang/en_US.yml`) |
+
+### Sistema de Idiomas (`lang/`)
+
+RewindCore soporta idiomas por archivo.
+
+- `config.yml -> general.language` selecciona el idioma (ej: `es_ES`).
+- El idioma se carga desde `plugins/RewindCore/lang/<idioma>.yml`.
+- `messages.yml` actúa como **override** (tus cambios personalizados) sobre el idioma.
+- Si falta una clave en el idioma, se usa el fallback de `messages.yml`.
 
 ### Almacenamiento Soportado
 - **SQLite** (por defecto, ideal para servidores pequeños/medianos)
@@ -184,6 +194,30 @@ multi-server:
   sync-snapshots: true
 ```
 
+### Auto-detección de Proxy (Bungee/Velocity)
+
+Si tienes activado el modo auto-config, el plugin intentará detectar:
+
+- **BungeeCord** leyendo `spigot.yml` (`settings.bungeecord: true`).
+- **Velocity** leyendo config de Paper (por ejemplo `config/paper-global.yml`).
+
+Cuando detecta proxy, activa automáticamente en memoria:
+
+- `proxy.enabled: true`
+- `proxy.type: bungee|velocity`
+- `multi-server.enabled: true`
+
+Opciones:
+
+```yaml
+environment:
+  auto-config:
+    enabled: true
+    persist: false
+```
+
+Si `persist` es `true`, guardará los cambios en `config.yml`.
+
 ---
 
 ## Rendimiento
@@ -197,6 +231,16 @@ multi-server:
 ---
 
 ## Changelog
+
+### v1.0.1
+- Soporte BungeeCord/Velocity (sincronización multi-servidor)
+- Sistema Undo para deshacer restauraciones
+- GUI de comparación de snapshots
+- Autocompletado inteligente en comandos
+- Rollback distribuido para múltiples jugadores
+- Notificaciones centralizadas cross-server
+- Nuevos comandos: `/rw undo`, `/rw compare`, `/rw distributed`
+- Correcciones de errores y mejoras de rendimiento
 
 ### v1.0.0
 - Release inicial
